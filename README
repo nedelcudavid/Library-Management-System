@@ -1,0 +1,44 @@
+**Nume:Nedelcu Andrei David**
+**Grupă:314CA**
+
+## Tema 2- The Library of HashBabel
+
+### Descriere:
+
+Rolurile fisierelor ce intra in componenta rezolvarii sunt urmatoarele:
+
+* hashtable.c si .h, ce pun la dispozitie implementarea interfetei de
+  tabela de dispersie generica redimensionabila
+
+* entities.c si .h, ce modeleaza "obiectele" care sunt tema acestui program
+  (utilizatorii si cartile), si expun diferite functii genereale pentru acestea,
+  cum ar fi de initializare, dealocare, comparare (in vederea sortarii),
+  afisare, precum si functia get_rating() pentru carti.
+
+* commands.c si .h, ce contin implementarea propriu-zisa a modului de executie
+  al fiecarei comenzi, avand cate o functie pentru fiecare comanda.
+  Cu privire la parsarea argumentelor unei comenzi, se foloseste functia
+  get_next_arg() din utils.c/h (mai multe detalii la punctul urmator), prima
+  data in main, pentru a extrage numele comenzii in vederea apelarii functiei
+  dorite, si de mai multe ori in functiile specializate, pentru a extrage
+  fiecare parametru relevant comenzii.
+
+* utils.c si .h, contribuind la structura rezolvarii cu doua functii:
+  - dup_str(), ce reprezinta o implementare pt C99 a functiei strdup()
+  - get_next_arg(), ce primeste o pozitie in stringul unde e stocata comanda,
+      si un buffer, extrage primul argument de la aceasta pozitiea, actualizeaza
+      pozitia, setand-o dupa argumentul extras si copiaza argumentul in buffer.
+      Daca s-a extras cu succes un argument, functia intoarce un pointer catre
+      bufferul pasat ca parametru, altfel va intoarce NULL.
+
+In vederea rezolvarii temei s-au parcurs urmatorii pasi:
+1. Alocarea tabelelor pentru carti si utilizatori (in main.c)
+2. Alocarea bufferului pt intreaga comanda
+3. Citirea urmatoarei comenzi
+4. Extragerea numelui comenzii si apelarea functiei necesara executiei acesteia,
+   afisand de asemenea orice mesaj de interes
+5. Daca functia nu e "EXIT", executia se reintoarce la pasul 3.
+6. Daca functia e "EXIT", se afiseaza clasamentul
+7. Se elibereaza din memorie tabelele pentru carti si utilizatori, cat si
+   bufferul pentru comanda
+8. Se opreste executia programulii
