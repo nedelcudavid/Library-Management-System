@@ -23,5 +23,3 @@ The following steps were undertaken to solve the problem:
 6. If the function is "EXIT," the ranking is displayed.
 7. Freeing the memory allocated for the tables of books and users, as well as the command buffer.
 8. Halting program execution.
-
-Feel free to adjust the styling and formatting according to your preferences.
