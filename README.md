@@ -1,5 +1,5 @@
 # Library Management System
-## Copyright Nedelcu Andrei-David
+## Copyright 2022 Nedelcu Andrei-David
 
 This project aims to provide a comprehensive library management system. Below are the roles of the files constituting the solution:
 
